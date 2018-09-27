@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        <a id="a" href="http://baidu.com">AAA</a>
+        <div id="div2">
+            2
+            <div id="div3">
+                3
+            </div>
+        </div>
+    </div>
+
+    <!--点击下拉菜单打开option中value的链接-->
+    <!--  js 保留字的解释
+         _self 表示当前窗口
+         _blank 表示新窗口
+         _parent 表示父窗口
+         _top 表示顶层窗口
+     -->
+
+    <select onChange="window.open(options[selectedIndex].value,'_self')">
+        <option selected>网站连接1……</option>
+        <option value="https://www.cnblogs.com/annieSun/p/8623000.html">1</option>
+        <option value="https://www.cnblogs.com/chenzhiyu/p/7788751.html">2</option>
+        <option value="https://www.cnblogs.com/annieSun/p/8623000.html">3</option>
+    </select>
+
+    <select onchange="window.open(options[selectedIndex].value, '_self')">
+        <option selected>网站连接2……</option>
+        <option value="https://www.cnblogs.com/annieSun/p/8623000.html">4</option>
+        <option value="https://www.cnblogs.com/annieSun/p/8623000.html">5</option>
+        <option value="https://www.cnblogs.com/annieSun/p/8623000.html">6</option>
+    </select>
+
+    <a href="javascript:location.reload();">点击刷新页面1</a>
+    <a href="javascript:;">点击刷新页面1-1</a>
+    <span onclick="location.reload(true);">点击刷新页面2</span>
+
+    <!--
+        ReferenceError：作用域判别错误，通过作用域链的搜寻找不到相应的变量。
+        TypeError：可以通过作用域搜索到变量，但是对变量的操作不合法。
+        SyntaxError：语法错误。
+     -->
+</body>
+</html>
+<script>
+    // 事件冒泡 从里到外
+    // 事件捕获 从外到里
+    var A = document.getElementById('a');
+    A.addEventListener('click',function (e) {
+        e.preventDefault()  // 阻止默认行为
+                            // event.returnValue = false;
+                            // 阻止事件的默认行为;
+    },false);
+    var div2 = document.getElementById('div2');
+    var div3 = document.getElementById('div3');
+    div2.addEventListener('click',function (e) {
+        alert('div2');
+
+    },false);  // true
+    div3.addEventListener('click',function (e) {
+        alert('div3');
+       // e.stopPropagation();  // 用于阻止事件的进一步获取和传播; 阻止事件继续向上层冒泡
+                                // event.cancelBubble = true;
+                                // 阻止事件的进一步获取或者冒泡;
+    },false);
+
+    // false div3 div2 // 事件冒泡 从里到外
+    // true  div2 div3 // 事件捕获 从外到里
+</script>
+

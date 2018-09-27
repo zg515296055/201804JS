@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-size: 14px;
+        }
+        .wrap{
+            width: 960px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .ad{
+            width: 100px;
+            height: 60px;
+            background-color: #0088ff;
+            color: #fff;
+            display: inline-block;
+           vertical-align: top;
+
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="ad">过客</div>
+    <div class="ad">想把我唱给你听想把我唱给你听</div>
+    <div class="ad"></div>
+    <div class="ad">穿越太平洋</div>
+    <div style="border:1px solid blue;width:60%;margin:50px auto;textAlign:center;">1</div>
+
+    <!--<div className="son" style={{border:'1px solid blue',width:'60%',margin:'50px auto',textAlign:'center'}}></div>-->
+
+
+
+</div>
+</body>
+</html>
+<script>
+    let a = [11,12,13,14,[15,16,17,18]];
+    function f(Ary) {
+        for(let i of Ary){
+            if(!(i instanceof Array)){
+                console.log(i)
+            }else{
+                f(i)
+            }
+        }
+    }
+    f(a);
+
+    function f(Ary) {
+        for(let i of Ary){
+            if(i instanceof Array){
+                f(i)
+            }else{
+                console.log(i)
+            }
+        }
+    }
+    f([77,78,79,80,[15,16,17,18]]);
+
+</script>
