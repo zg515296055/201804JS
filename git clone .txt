@@ -1,0 +1,44 @@
+查看 url git remote -v
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+#查看远程分支 git branch -r 
+
+#查看所有分支 git branch -a 
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+配置用户信息 git config --global user.email 515296055@qq.com
+
+
+：wq
+
+core.filemode=false
+
+分支下载
+
+
+1.?在工作空间，右键，打开Git Bash
+?
+
+2.?clone主分支的代码（即下载主分支代码的过程）
+执行命令： git clone xxx.git
+
+
+
+3.?进入工程目录
+cd ? xxx
+?
+
+
+4.?切换到分支并下载代码
+git?checkout?-b 远程仓库分支名字 origin/远程仓库分支名字?
+git pull
